@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gusrubin.lab.springbootjwt.web.security.BasicCredential;
-import com.gusrubin.lab.springbootjwt.web.security.JwtProvider;
-import com.gusrubin.lab.springbootjwt.web.security.WebAuthenticationProvider;
+import com.gusrubin.springbootredisjwt.web.security.BasicCredential;
+import com.gusrubin.springbootredisjwt.web.security.JwtProvider;
+import com.gusrubin.springbootredisjwt.web.security.WebAuthenticationProvider;
 
 import lombok.extern.slf4j.Slf4j;
 

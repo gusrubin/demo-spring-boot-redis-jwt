@@ -28,7 +28,7 @@ public class SystemUserService {
 	// User querying
 
 	@PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")
-	public List<SystemUser> getAllManagerUsers() {
+	public List<SystemUser> getAllSystemUsers() {
 		List<SystemUser> managerUserList = (List<SystemUser>) systemUserRepository.findAll();
 		if (ERole.ROLE_MANAGER.label.equals(getResquesterUsername())) {
 			managerUserList.removeIf(m -> ERole.ROLE_ADMIN.label.equals(m.getUsername()));
@@ -38,20 +38,20 @@ public class SystemUserService {
 
 	@PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('RECEPTIONIST') or hasRole('MONITOR')")
 	public SystemUser getOwnManagerUser() {
-		return findManagerUser(getResquesterUsername());
+		return findSystemUser(getResquesterUsername());
 	}
 
 	@PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")
-	public SystemUser getManagerUser(String username) {
-		SystemUser systemUser = findManagerUser(username);
+	public SystemUser getSystemUser(String username) {
+		SystemUser systemUser = findSystemUser(username);
 		if (ERole.ROLE_MANAGER.label.equals(getResquesterUsername())
 				&& ERole.ROLE_ADMIN.name().equals(systemUser.getRole())) {
 			throw new AccessDeniedException("Action restrited to 'admim' user");
 		}
-		return findManagerUser(getResquesterUsername());
+		return findSystemUser(getResquesterUsername());
 	}
 
-	private SystemUser findManagerUser(String username) {
+	private SystemUser findSystemUser(String username) {
 		SystemUser managerUserResul = systemUserRepository.findByUsername(username);
 		if (managerUserResul == null) {
 			throw new IllegalStateException("User doesn't exist");
@@ -89,10 +89,10 @@ public class SystemUserService {
 	}
 
 	// User updating
-	
+
 	@PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")
-	public SystemUser updateManagerUser(String username, SystemUser newManagerUser) {
-		SystemUser systemUser = findManagerUser(username);
+	public SystemUser updateSystemUser(String username, SystemUser newManagerUser) {
+		SystemUser systemUser = findSystemUser(username);
 		if (ERole.ROLE_ADMIN.name().equals(systemUser.getRole())) {
 			throw new AccessDeniedException("Can't update 'admin' user");
 		}
@@ -122,8 +122,8 @@ public class SystemUserService {
 	// User removing
 
 	@PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")
-	public void deleteManagerUser(String username) {
-		SystemUser systemUser = findManagerUser(username);
+	public void deleteSystemUser(String username) {
+		SystemUser systemUser = findSystemUser(username);
 		if (ERole.ROLE_ADMIN.name().equals(systemUser.getRole())) {
 			throw new AccessDeniedException("Can't remove user 'admin'");
 		}
