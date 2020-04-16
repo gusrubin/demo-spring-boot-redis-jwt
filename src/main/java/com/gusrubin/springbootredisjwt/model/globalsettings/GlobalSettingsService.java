@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 public class GlobalSettingsService {
 
 	private final GlobalSettingsRepository globalSettingsRepository;
-	@Value("${springjwt2.default-jwt-secret}")
+	@Value("${spring-boot-redis-jwt.default-jwt-secret}")
 	private String defaultJwtSecret;
-	@Value("${springjwt2.default-jwt-expiration-seconds}")
+	@Value("${spring-boot-redis-jwt.default-jwt-expiration-seconds}")
 	private Long defaultJwtExpirationSeconds;
 
 	@Autowired

@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Builder
 @JsonInclude(Include.NON_NULL)
-public class ManagerUserResponseDto {
+public class SystemUserResponseDto {
 
 	private String username;
 	private String role;

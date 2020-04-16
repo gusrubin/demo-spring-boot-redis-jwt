@@ -6,7 +6,7 @@ import org.springframework.data.redis.core.RedisHash;
 import lombok.Builder;
 import lombok.Data;
 
-@RedisHash("SpringJwt2GlobalSettings")
+@RedisHash("SpringBootJwtGlobalSettings")
 @Data
 @Builder
 public class GlobalSettings {
