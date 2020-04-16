@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "spring-boot-redis-jwt.default-jwt-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'spring-boot-redis-jwt.default-jwt-secret'"
+  },
+  {
+    "name": "spring-boot-redis-jwt.default-jwt-expiration-seconds",
+    "type": "java.lang.String",
+    "description": "A description for 'spring-boot-redis-jwt.default-jwt-expiration-seconds'"
+  },
+  {
+    "name": "spring-boot-redis-jwt.default-admin-password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring-boot-redis-jwt.default-admin-password'"
+  }
+]}
